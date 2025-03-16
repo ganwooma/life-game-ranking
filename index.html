@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스팀 스토리 게임 순위</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e2e;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        .rank-card {
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #3a3f58, #6c7aaf);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+        .rank-card:hover {
+            transform: translateY(-5px);
+        }
+        .rank-title {
+            font-weight: bold;
+            color: #ffdd57;
+        }
+        .rank-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        .rank-desc {
+            font-size: 1rem;
+            color: #e0e0e0;
+            opacity: 0.9;
+        }
+        .rank-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: rgba(255, 221, 87, 0.2);
+            color: #ffdd57;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .rank-link:hover {
+            background-color: rgba(255, 221, 87, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4" style="font-weight: bold; color: #ffdd57;">🏆 스팀 스토리 게임 순위 🏆</h2>
+        <div class="d-flex flex-column align-items-center" id="ranking-list"></div>
+    </div>
+    
+    <script>
+        const rankings = [
+            ["마녀의 집 MV", "반전이 걍 미침<br>스팀 ₩16,500", "https://store.steampowered.com/app/885810/The_Witchs_House_MV/"],
+            ["산나비", "스토리 명작<br>스팀 ₩15,500", "https://store.steampowered.com/app/1562700/_/"],
+            ["언더테일", "다 아는 명작<br>스팀 ₩10,500", "https://store.steampowered.com/app/391540/Undertale/"],
+            ["The Aquarium does not dance", "할만함<br>스팀 무료", "https://store.steampowered.com/app/2814910/The_Aquarium_does_not_dance/"],
+            ["Outcore", "할만함<br>스팀 무료", "https://store.steampowered.com/app/1275670/Outcore_Desktop_Adventure/"],
+        ];
+        
+        const rankingList = document.getElementById("ranking-list");
+        
+        rankings.forEach((rank, index) => {
+            const card = document.createElement("div");
+            card.className = "rank-card w-50";
+            card.innerHTML = `
+                <h3 class="rank-title">${index + 1}위</h3>
+                <h4 class="rank-name">${rank[0]}</h4>
+                <p class="rank-desc">${rank[1]}</p>
+                <a href="${rank[2]}" class="rank-link" target="_blank">다운로드 링크</a>
+            `;
+            rankingList.appendChild(card);
+        });
+    </script>
+</body>
+</html>
